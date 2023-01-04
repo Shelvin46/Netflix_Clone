@@ -28,6 +28,7 @@ class ScreenDownload extends StatelessWidget {
             itemCount: widgetList.length));
   }
 }
+//<----------------------------------------------Section1------------------------------------------------------------------>
 
 class Section1 extends StatelessWidget {
   const Section1({
@@ -53,6 +54,7 @@ class Section1 extends StatelessWidget {
     );
   }
 }
+//<----------------------------------------------Section1------------------------------------------------------------------>
 
 class DownloadImageWidget extends StatelessWidget {
   const DownloadImageWidget(
