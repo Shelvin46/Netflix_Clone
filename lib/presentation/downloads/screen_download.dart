@@ -9,11 +9,11 @@ import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
 
-  final List imageList = [
-    "https://www.themoviedb.org/t/p/w220_and_h330_face/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg"
-        "https://www.themoviedb.org/t/p/w220_and_h330_face/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"
-        "https://www.themoviedb.org/t/p/w220_and_h330_face/gBBCBMXKzWRADtliUYfV69aVIcz.jpg"
-  ];
+  // final List imageList = [
+  //   "https://www.themoviedb.org/t/p/w220_and_h330_face/438QXt1E3WJWb3PqNniK0tAE5c1.jpg"
+  //       "https://www.themoviedb.org/t/p/w220_and_h330_face/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"
+  //       "https://www.themoviedb.org/t/p/w220_and_h330_face/gBBCBMXKzWRADtliUYfV69aVIcz.jpg"
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +55,7 @@ class ScreenDownload extends StatelessWidget {
                 Container(
                   width: size.width * 0.4,
                   height: size.width * 0.58,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        imageList[0],
-                      ),
-                    ),
-                  ),
+                  decoration: contDecorationDown,
                 )
               ],
             ),

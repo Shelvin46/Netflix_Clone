@@ -22,10 +22,6 @@ final textStyle2 = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
-// final contDecorationDown = BoxDecoration(
-//   image: DecorationImage(
-//     image: NetworkImage(
-//       imageList[0],
-//     ),
-//   ),
-// );
+final contDecorationDown = BoxDecoration(
+  image: DecorationImage(image: AssetImage('assets/downloadfirst.jpg')),
+);
