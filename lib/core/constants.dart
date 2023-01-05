@@ -134,4 +134,25 @@ final BoxDecoration boxDecorationHome = BoxDecoration(
 final numberCardSize = SizedBox(
   width: 50,
 );
-final TextStyle numberCardIndex = TextStyle(fontSize: 50);
+final TextStyle numberCardIndex = TextStyle(
+  fontSize: 100,
+  decoration: TextDecoration.none,
+  color: Colors.black,
+);
+final BoxDecoration boxDecorationNumber = BoxDecoration(
+  borderRadius: boredRadiusHome,
+  image: DecorationImage(
+    fit: BoxFit.cover,
+    image: AssetImage('assets/downloadfirst.jpg'),
+  ),
+);
+final BoxDecoration homeMainImage = BoxDecoration(
+  borderRadius: boredRadiusHome,
+  image: DecorationImage(
+    fit: BoxFit.cover,
+    image: AssetImage('assets/downloadthird.jpg'),
+  ),
+);
+dynamic buttonPlayStyle =
+    ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white));
+final TextStyle playText = TextStyle(fontSize: 20, color: Colors.black);

@@ -18,3 +18,4 @@ const trailingColor = Colors.white;
 //<--------------------------------------------------------------Search Screen----------------------------------------------------------->
 const laughIconColor = Colors.white;
 //<----------------------------------------------------------------laughScreen
+const playTextColor = Colors.black;

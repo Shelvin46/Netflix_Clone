@@ -1,12 +1,12 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:netflix/core/constants.dart';
 
 class NumberTitleCard extends StatelessWidget {
-  const NumberTitleCard({super.key, required this.index});
+  NumberTitleCard({super.key, required this.index});
   final int index;
+  int a = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,21 @@ class NumberTitleCard extends StatelessWidget {
             Container(
               width: 150,
               height: 250,
-              decoration: boxDecorationHome,
+              decoration: boxDecorationNumber,
             ),
           ],
         ),
-        Text(
-          '$index',
-          style: numberCardIndex,
+        Positioned(
+          left: 10,
+          bottom: 10,
+          child: BorderedText(
+            strokeWidth: 10.0,
+            strokeColor: Colors.white,
+            child: Text(
+              "${index + 1}",
+              style: numberCardIndex,
+            ),
+          ),
         )
       ],
     );

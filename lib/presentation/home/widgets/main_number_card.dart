@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constants.dart';
-import 'package:netflix/presentation/widgets/main_title.dart';
+import 'package:netflix/presentation/home/widgets/number_card.dart';
 
-import 'main_home_card.dart';
+import '../../widgets/main_title.dart';
 
-class MainTitleCard extends StatelessWidget {
-  const MainTitleCard({Key? key, required this.title}) : super(key: key);
-  final String title;
+class NumberCard extends StatelessWidget {
+  const NumberCard({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        kHeight,
-        MainTitile(title: title),
+        const MainTitile(title: "Top 10 TV Shows"),
         kHeight,
         LimitedBox(
           maxHeight: 200,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const MainHomeCard();
+                return NumberTitleCard(
+                  index: index,
+                );
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(
