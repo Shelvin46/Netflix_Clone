@@ -38,6 +38,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.2.3
+  video_player: ^2.4.10
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +66,14 @@ flutter:
   assets:
      - assets/downloadfirst.jpg
      - assets/downloadsecond.jpg
-     - assets/downloadthird.jpg 
+     - assets/downloadthird.jpg
+     - assets/horriimage1.jpg
+     - assets/horriimage2.jpg
+     - assets/horrimage3.jpg
+     - assets/horriimage4.jpg
+     - assets/horriimage5.jpg
+     - assets/horriimage6.jpg
+     
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

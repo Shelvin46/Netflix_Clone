@@ -11,3 +11,10 @@ const downTextStyle2 = Colors.black;
 const downIndroText2 = Colors.grey;
 dynamic downCircleAvatar = Colors.grey.withOpacity(0.5);
 //<-------------------------------------------DownloadScreen------------------------------------------------------------>
+dynamic searchBackColor = Colors.grey.withOpacity(0.4);
+const searchTrailCircle = Colors.white;
+const searchTrailInsideCircle = Colors.black;
+const trailingColor = Colors.white;
+//<--------------------------------------------------------------Search Screen----------------------------------------------------------->
+const laughIconColor = Colors.white;
+//<----------------------------------------------------------------laughScreen
