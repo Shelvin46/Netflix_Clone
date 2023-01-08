@@ -19,3 +19,9 @@ const trailingColor = Colors.white;
 const laughIconColor = Colors.white;
 //<----------------------------------------------------------------laughScreen
 const playTextColor = Colors.black;
+const addIconColor = Colors.white;
+final navBar = Colors.black.withOpacity(0.2);
+//<-----------------------------------------------------------------Home-------------------------------------------->
+const bottomLabelColor = Colors.black;
+const unbottomLabelColor = Colors.white;
+const newhotColor = Colors.white;

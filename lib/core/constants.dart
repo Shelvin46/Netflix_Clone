@@ -156,3 +156,81 @@ final BoxDecoration homeMainImage = BoxDecoration(
 dynamic buttonPlayStyle =
     ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white));
 final TextStyle playText = TextStyle(fontSize: 20, color: Colors.black);
+final TextStyle myListText = TextStyle(
+  fontSize: 18,
+);
+final TextStyle someHeaders = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+//<---------------------------------------------------------------------home page------------------------------------------------------>
+final BorderRadius newhotBottomRad = BorderRadius.circular(30);
+
+BoxDecoration newhotBottomDec = BoxDecoration(
+  color: Colors.white,
+  borderRadius: newhotBottomRad,
+);
+final TextStyle bottomLabelStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+final Container commingSoonDate = Container(
+  color: Colors.green,
+  width: 50,
+  // color: Colors.white,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    // mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Text(
+        "Feb",
+        style: commingSoonDateText,
+      ),
+      Text(
+        '11',
+        style: commingSoonDateText,
+      )
+    ],
+  ),
+);
+final TextStyle commingSoonDateText = TextStyle(
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+);
+const newhotMainImage = "assets/horriimage6.jpg";
+final TextStyle contentText = GoogleFonts.italiana(
+  fontSize: 28,
+  fontWeight: FontWeight.bold,
+  letterSpacing: -1,
+);
+final muteButtonNewHot = CircleAvatar(
+  backgroundColor: Colors.black.withOpacity(0.5),
+  radius: 22,
+  child: IconButton(
+    onPressed: () {},
+    icon: Icon(
+      Icons.volume_off,
+      size: 20,
+      color: Colors.white,
+    ),
+  ),
+);
+final TextStyle newhotMainIcon = TextStyle(
+  fontSize: 18,
+);
+final SizedBox textIconWidth = SizedBox(
+  width: 28,
+);
+final SizedBox iconWidth = SizedBox(
+  width: 25,
+);
+final TextStyle contentTextGap = GoogleFonts.biryani(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+final TextStyle descrptionStyle = TextStyle(color: Colors.grey);
+final SizedBox videoGap = SizedBox(height: 50);
+final Padding textGap = Padding(padding: EdgeInsets.only(left: 5));
+const baseUrl = 'https://developers.themoviedb.org/3';
+//bloc
+const imageAppendUrl = 'https://image.tmdb.org/t/p/w500';
