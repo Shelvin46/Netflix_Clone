@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DownloadsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getDownloadsImages,
+    required TResult Function() getDownloadImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getDownloadsImages,
+    TResult? Function()? getDownloadImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getDownloadsImages,
+    TResult Function()? getDownloadImages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadsImages value) getDownloadsImages,
+    required TResult Function(_GetDownloadsImages value) getDownloadImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadsImages value)? getDownloadsImages,
+    TResult? Function(_GetDownloadsImages value)? getDownloadImages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadsImages value)? getDownloadsImages,
+    TResult Function(_GetDownloadsImages value)? getDownloadImages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +91,7 @@ class _$_GetDownloadsImages implements _GetDownloadsImages {
 
   @override
   String toString() {
-    return 'DownloadsEvent.getDownloadsImages()';
+    return 'DownloadsEvent.getDownloadImages()';
   }
 
   @override
@@ -106,27 +106,27 @@ class _$_GetDownloadsImages implements _GetDownloadsImages {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getDownloadsImages,
+    required TResult Function() getDownloadImages,
   }) {
-    return getDownloadsImages();
+    return getDownloadImages();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getDownloadsImages,
+    TResult? Function()? getDownloadImages,
   }) {
-    return getDownloadsImages?.call();
+    return getDownloadImages?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getDownloadsImages,
+    TResult Function()? getDownloadImages,
     required TResult orElse(),
   }) {
-    if (getDownloadsImages != null) {
-      return getDownloadsImages();
+    if (getDownloadImages != null) {
+      return getDownloadImages();
     }
     return orElse();
   }
@@ -134,27 +134,27 @@ class _$_GetDownloadsImages implements _GetDownloadsImages {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadsImages value) getDownloadsImages,
+    required TResult Function(_GetDownloadsImages value) getDownloadImages,
   }) {
-    return getDownloadsImages(this);
+    return getDownloadImages(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadsImages value)? getDownloadsImages,
+    TResult? Function(_GetDownloadsImages value)? getDownloadImages,
   }) {
-    return getDownloadsImages?.call(this);
+    return getDownloadImages?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadsImages value)? getDownloadsImages,
+    TResult Function(_GetDownloadsImages value)? getDownloadImages,
     required TResult orElse(),
   }) {
-    if (getDownloadsImages != null) {
-      return getDownloadsImages(this);
+    if (getDownloadImages != null) {
+      return getDownloadImages(this);
     }
     return orElse();
   }
@@ -167,7 +167,7 @@ abstract class _GetDownloadsImages implements DownloadsEvent {
 /// @nodoc
 mixin _$DownloadState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<Downloads>? get downloads => throw _privateConstructorUsedError;
+  List<Downloads> get downloads => throw _privateConstructorUsedError;
   Option<Either<MainFailure, List<Downloads>>> get downloadFailureandSucess =>
       throw _privateConstructorUsedError;
 
@@ -184,7 +184,7 @@ abstract class $DownloadStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      List<Downloads>? downloads,
+      List<Downloads> downloads,
       Option<Either<MainFailure, List<Downloads>>> downloadFailureandSucess});
 }
 
@@ -202,7 +202,7 @@ class _$DownloadStateCopyWithImpl<$Res, $Val extends DownloadState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? downloads = freezed,
+    Object? downloads = null,
     Object? downloadFailureandSucess = null,
   }) {
     return _then(_value.copyWith(
@@ -210,10 +210,10 @@ class _$DownloadStateCopyWithImpl<$Res, $Val extends DownloadState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: freezed == downloads
+      downloads: null == downloads
           ? _value.downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>?,
+              as List<Downloads>,
       downloadFailureandSucess: null == downloadFailureandSucess
           ? _value.downloadFailureandSucess
           : downloadFailureandSucess // ignore: cast_nullable_to_non_nullable
@@ -232,7 +232,7 @@ abstract class _$$_DownloadStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      List<Downloads>? downloads,
+      List<Downloads> downloads,
       Option<Either<MainFailure, List<Downloads>>> downloadFailureandSucess});
 }
 
@@ -248,7 +248,7 @@ class __$$_DownloadStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? downloads = freezed,
+    Object? downloads = null,
     Object? downloadFailureandSucess = null,
   }) {
     return _then(_$_DownloadState(
@@ -256,10 +256,10 @@ class __$$_DownloadStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: freezed == downloads
+      downloads: null == downloads
           ? _value._downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>?,
+              as List<Downloads>,
       downloadFailureandSucess: null == downloadFailureandSucess
           ? _value.downloadFailureandSucess
           : downloadFailureandSucess // ignore: cast_nullable_to_non_nullable
@@ -273,20 +273,18 @@ class __$$_DownloadStateCopyWithImpl<$Res>
 class _$_DownloadState implements _DownloadState {
   const _$_DownloadState(
       {required this.isLoading,
-      required final List<Downloads>? downloads,
+      required final List<Downloads> downloads,
       required this.downloadFailureandSucess})
       : _downloads = downloads;
 
   @override
   final bool isLoading;
-  final List<Downloads>? _downloads;
+  final List<Downloads> _downloads;
   @override
-  List<Downloads>? get downloads {
-    final value = _downloads;
-    if (value == null) return null;
+  List<Downloads> get downloads {
     if (_downloads is EqualUnmodifiableListView) return _downloads;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_downloads);
   }
 
   @override
@@ -328,14 +326,14 @@ class _$_DownloadState implements _DownloadState {
 abstract class _DownloadState implements DownloadState {
   const factory _DownloadState(
       {required final bool isLoading,
-      required final List<Downloads>? downloads,
+      required final List<Downloads> downloads,
       required final Option<Either<MainFailure, List<Downloads>>>
           downloadFailureandSucess}) = _$_DownloadState;
 
   @override
   bool get isLoading;
   @override
-  List<Downloads>? get downloads;
+  List<Downloads> get downloads;
   @override
   Option<Either<MainFailure, List<Downloads>>> get downloadFailureandSucess;
   @override
