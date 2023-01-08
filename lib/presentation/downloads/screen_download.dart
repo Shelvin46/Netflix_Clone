@@ -103,7 +103,7 @@ class Section2 extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<DownloadsBloc>(context)
-          .add(const DownloadsEvent.getDownloadsImages());
+          .add(const DownloadsEvent.getDownloadImages());
     });
 
     final Size size = MediaQuery.of(context).size;
@@ -137,21 +137,21 @@ class Section2 extends StatelessWidget {
                         ),
                         DownloadImageWidget(
                           image:
-                              '$imageAppendUrl${state.downloads![0].posterPath}',
+                              '$imageAppendUrl${state.downloads[0].posterPath}',
                           margin: const EdgeInsets.only(left: 180, top: 50),
                           angle: 23,
                           size: Size(size.width * 0.35, size.width * 0.55),
                         ),
                         DownloadImageWidget(
                           image:
-                              "$imageAppendUrl${state.downloads![1].posterPath}",
+                              "$imageAppendUrl${state.downloads[1].posterPath}",
                           margin: const EdgeInsets.only(right: 180, top: 50),
                           angle: -23,
                           size: Size(size.width * 0.35, size.width * 0.55),
                         ),
                         DownloadImageWidget(
                           image:
-                              "$imageAppendUrl${state.downloads![2].posterPath}",
+                              "$imageAppendUrl${state.downloads[2].posterPath}",
                           margin: const EdgeInsets.only(bottom: 10, top: 13),
                           size: Size(size.width * 0.4, size.width * 0.6),
                         )

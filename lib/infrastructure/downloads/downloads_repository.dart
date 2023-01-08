@@ -13,7 +13,7 @@ import 'package:netflix/doamin/downloads/models/model_download.dart';
 //here we call the api
 class DownloadsRepository implements IDownloadsRepo {
   @override
-  Future<Either<MainFailure, List<Downloads>>> getDownloadsImages() async {
+  Future<Either<MainFailure, List<Downloads>>> getDownloadImages() async {
     try {
       final Response response =
           await Dio(BaseOptions()).get(ApiEndPoints.download);

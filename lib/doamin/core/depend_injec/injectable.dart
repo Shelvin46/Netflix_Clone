@@ -7,5 +7,5 @@ final getIt = GetIt.instance;
 
 @InjectableInit()
 Future<void> configureInjection() async {
- await $initGetIt(getIt, environment: Environment.prod);
+  await $initGetIt(getIt, environment: Environment.prod);
 }
