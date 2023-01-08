@@ -231,6 +231,6 @@ final TextStyle contentTextGap = GoogleFonts.biryani(
 final TextStyle descrptionStyle = TextStyle(color: Colors.grey);
 final SizedBox videoGap = SizedBox(height: 50);
 final Padding textGap = Padding(padding: EdgeInsets.only(left: 5));
-const baseUrl = 'https://developers.themoviedb.org/3';
+const baseUrl = 'https://api.themoviedb.org/3';
 //bloc
 const imageAppendUrl = 'https://image.tmdb.org/t/p/w500';

@@ -1,10 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/appplication/bloc/downloads_bloc.dart';
+//import 'package:netflix/appplication/bloc/downloads_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
+
+import '../../appplication/downloads/downloads_bloc.dart';
 
 class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});

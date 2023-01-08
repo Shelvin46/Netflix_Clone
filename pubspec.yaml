@@ -34,7 +34,7 @@ dependencies:
   cached_network_image: ^3.2.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  dio: ^4.0.6
+  dio: 
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1

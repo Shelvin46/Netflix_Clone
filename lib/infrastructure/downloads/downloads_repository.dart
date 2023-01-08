@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -19,15 +20,9 @@ class DownloadsRepository implements IDownloadsRepo {
           await Dio(BaseOptions()).get(ApiEndPoints.download);
       if (response.statusCode == 200 || response.statusCode == 201) {
         final downloadList = (response.data['results'] as List).map((e) {
-          //print(response.data);
-          return Downloads.fromJson(e as Map<String, dynamic>);
+          return Downloads.fromJson(e);
         }).toList();
-        
 
-        // final List<Downloads> downloadList = [];
-        // for (final res in response.data) {
-        //   downloadList.add(Downloads.fromJson(res as Map<String, dynamic>));
-        // }
         return Right(downloadList);
 
         //if the response is true we loop the model and add the all response into list and that list will show pictures
