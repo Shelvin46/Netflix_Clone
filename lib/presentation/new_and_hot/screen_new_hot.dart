@@ -58,17 +58,50 @@ class ScreenNewHot extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            _buildCommingSoon(context),
-            _buildEverryoneWatching(),
+            CommingSoonList(descriptionText: descriptionText),
+            EveryOneWatchingList(descriptionText: descriptionText),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildCommingSoon(context) {
-    //Size size = MediaQuery.of(context).size;
+  //Size size = MediaQuery.of(context).size;
+
+}
+
+class EveryOneWatchingList extends StatelessWidget {
+  const EveryOneWatchingList({
+    Key? key,
+    required this.descriptionText,
+  }) : super(key: key);
+
+  final String descriptionText;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 3,
+      itemBuilder: (BuildContext context, index) {
+        return EveryOneWatching(descriptionText: descriptionText);
+      },
+    );
+  }
+}
+
+class CommingSoonList extends StatelessWidget {
+  const CommingSoonList({
+    Key? key,
+    required this.descriptionText,
+  }) : super(key: key);
+
+  final String descriptionText;
+
+  @override
+  Widget build(BuildContext context) {
+    
     return ListView.separated(
+      padding: EdgeInsets.only(top: 10),
         separatorBuilder: (context, index) {
           return kHeight;
         },
@@ -81,14 +114,5 @@ class ScreenNewHot extends StatelessWidget {
           );
         },
         itemCount: 10);
-  }
-
-  Widget _buildEverryoneWatching() {
-    return ListView.builder(
-      itemCount: 3,
-      itemBuilder: (BuildContext context, index) {
-        return EveryOneWatching(descriptionText: descriptionText);
-      },
-    );
   }
 }

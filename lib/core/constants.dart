@@ -234,3 +234,4 @@ final Padding textGap = Padding(padding: EdgeInsets.only(left: 5));
 const baseUrl = 'https://api.themoviedb.org/3';
 //bloc
 const imageAppendUrl = 'https://image.tmdb.org/t/p/w500';
+

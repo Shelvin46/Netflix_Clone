@@ -34,17 +34,19 @@ dependencies:
   cached_network_image: ^3.2.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  dio: 
+  dio: null
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
   freezed: ^2.3.2
+  freezed_annotation: ^2.2.0
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   injectable: ^1.5.3
   json_annotation: ^4.7.0
   json_serializable: ^6.5.4
-  video_player: ^2.4.10
+  share_plus: ^4.0.3
+  video_player: ^2.3.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

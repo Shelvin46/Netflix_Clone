@@ -22,6 +22,7 @@ class DownloadsRepository implements IDownloadsRepo {
         final downloadList = (response.data['results'] as List).map((e) {
           return Downloads.fromJson(e);
         }).toList();
+        print(response.data);
 
         return Right(downloadList);
 
@@ -30,7 +31,7 @@ class DownloadsRepository implements IDownloadsRepo {
         return const Left(MainFailure.serverFailure());
       }
     } catch (e) {
-      log(e.toString());
+      //log(e.toString());
       return const Left(MainFailure.clientFailure());
     }
   }

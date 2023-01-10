@@ -15,81 +15,87 @@ class CommingSoonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      height: 600,
-      child: Column(
-        children: [
-          kHeight,
-          Row(
+
+    //kHeight,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          //color: Colors.green,
+          width: 70,
+          // color: Colors.white,
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 1070),
-                child: commingSoonDate,
+              Text(
+                "Feb",
+                style: commingSoonDateText,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 720),
-                child: Container(
-                  color: Colors.red,
-                  width: size.width - 50,
-                  height: 450,
-                  // color: Colors.amber,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const VideoWidget(),
-                      kHeight,
-                      Row(
-                        children: [
-                          Text(
-                            "TALL GIRL 2",
-                            style: contentText,
-                          ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 15),
-                            child: Row(
-                              children: [
-                                textIconWidth,
-                                const NewHotButtons(
-                                  color: newhotColor,
-                                  icon: Icons.alarm,
-                                  size: 20,
-                                  text: "Remaind Me",
-                                  textSize: 11,
-                                ),
-                                iconWidth,
-                                const NewHotButtons(
-                                  color: newhotColor,
-                                  icon: Icons.info,
-                                  size: 20,
-                                  text: "Info",
-                                  textSize: 11,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      kHeight,
-                      const Text('Comming on Friday'),
-                      kHeight,
-                      Text(
-                        "TALL GIRL 2",
-                        style: contentTextGap,
-                      ),
-                      //kHeight,
-                      Text(
-                        descriptionText,
-                        style: descrptionStyle,
-                      ),
-                    ],
-                  ),
-                ),
+              Text(
+                '11',
+                style: commingSoonDateText,
               )
             ],
           ),
-        ],
-      ),
+        ),
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            height: 450,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const VideoWidget(),
+                Row(
+                  children: [
+                    Text(
+                      "TALL GIRL 2",
+                      style: contentText,
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          //textIconWidth,
+                          const NewHotButtons(
+                            color: newhotColor,
+                            icon: Icons.alarm,
+                            size: 20,
+                            text: "Remaind Me",
+                            textSize: 11,
+                          ),
+                          iconWidth,
+                          const NewHotButtons(
+                            color: newhotColor,
+                            icon: Icons.info,
+                            size: 20,
+                            text: "Info",
+                            textSize: 11,
+                          ),
+                          kWidhth
+                        ],
+                      ),
+                    ),
+                    kHeight
+                  ],
+                ),
+                kHeight,
+                const Text('Comming on Friday'),
+                kHeight,
+                Text(
+                  "TALL GIRL 2",
+                  style: contentTextGap,
+                ),
+                Text(
+                  descriptionText,
+                  style: descrptionStyle,
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
     );
   }
 }

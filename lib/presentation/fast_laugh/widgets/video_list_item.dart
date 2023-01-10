@@ -1,8 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/appplication/fast_laugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/doamin/downloads/models/model_download.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:video_player/video_player.dart';
+
+class VideoListItemInheritedWidget extends InheritedWidget {
+  final Widget widget;
+  final Downloads movieData;
+
+  //Creating Constructor
+  //giving the constructor into the inherited widget class
+
+  const VideoListItemInheritedWidget({
+    super.key,
+    required this.widget,
+    required this.movieData,
+  }) : super(child: widget);
+
+  @override
+  //notify to the widget rebuilding where the child or parent data will change
+  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    //the UI will rebuild our oldwidget is not matching to the corresponding moviedata
+    return oldWidget.movieData != movieData;
+  }
+
+  static VideoListItemInheritedWidget? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
+}
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -10,11 +41,13 @@ class VideoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final posterPath =
+        VideoListItemInheritedWidget.of(context)?.movieData.posterPath;
+    final videoUrl = dummyVideoUrls[index % dummyVideoUrls.length];
+
     return Stack(
       children: [
-        Container(
-          color: Colors.accents[index % Colors.accents.length],
-        ),
+        FastLaughVideoPlayer(videoUrl: videoUrl, onStateChanged: (bool) {}),
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
@@ -28,29 +61,47 @@ class VideoListItem extends StatelessWidget {
                 //rightside
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 30,
-                        backgroundImage:
-                            AssetImage('assets/downloadsecond.jpg'),
+                        backgroundImage: posterPath == null
+                            ? null
+                            : NetworkImage('$imageAppendUrl$posterPath'),
                       ),
                     ),
-                    VideoACtionWidget(
-                      icon: laughIcon1,
-                      title: "LOL",
+                    BlocBuilder<FastLaughBloc, FastLaughState>(
+                      builder: (context, state) {
+                        final _index = index;
+
+                        return VideoACtionWidget(
+                          icon: laughIcon1,
+                          title: "LOL",
+                        );
+                      },
                     ),
                     // kHeight,
-                    VideoACtionWidget(
+                    const VideoACtionWidget(
                       icon: laughIcon2,
                       title: "My List",
                     ),
-                    VideoACtionWidget(
-                      icon: laughIcon3,
-                      title: "Share",
+                    GestureDetector(
+                      onTap: () {
+                        final movieName =
+                            VideoListItemInheritedWidget.of(context)
+                                ?.movieData
+                                .posterPath;
+                        if (movieName != null) {
+                          Share.share(movieName);
+                        }
+                      },
+                      child: const VideoACtionWidget(
+                        icon: laughIcon3,
+                        title: "Share",
+                      ),
                     ),
-                    VideoACtionWidget(
+                    const VideoACtionWidget(
                       icon: laughIcon4,
                       title: "Play",
                     )
@@ -89,5 +140,55 @@ class VideoACtionWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class FastLaughVideoPlayer extends StatefulWidget {
+  final String videoUrl;
+  final void Function(bool isPlaying) onStateChanged;
+  const FastLaughVideoPlayer({
+    super.key,
+    required this.videoUrl,
+    required this.onStateChanged,
+  });
+
+  @override
+  State<FastLaughVideoPlayer> createState() => _FastLaughVideoPlayerState();
+}
+
+class _FastLaughVideoPlayerState extends State<FastLaughVideoPlayer> {
+  late VideoPlayerController _videoPlayerController;
+
+  @override
+  void initState() {
+    _videoPlayerController = VideoPlayerController.network(widget.videoUrl);
+    _videoPlayerController.initialize().then((value) {
+      setState(() {});
+      _videoPlayerController.play();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: _videoPlayerController.value.isInitialized
+            ? AspectRatio(
+                aspectRatio: _videoPlayerController.value.aspectRatio,
+                child: VideoPlayer(_videoPlayerController),
+              )
+            : const Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                ),
+              ));
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
   }
 }

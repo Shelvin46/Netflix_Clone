@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/doamin/core/depend_injec/injectable.dart';
 import 'package:netflix/presentation/main_page/screen_mian_bottom.dart';
-
 import 'appplication/downloads/downloads_bloc.dart';
+import 'appplication/fast_laugh/fast_laugh_bloc.dart';
+import 'appplication/search/search_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) {
             return getIt<DownloadsBloc>();
+          },
+        ),
+        BlocProvider(
+          create: (context) {
+            return getIt<SearchBloc>();
+          },
+        ),
+         BlocProvider(
+          create: (context) {
+            return getIt<FastLaughBloc>();
           },
         )
       ],
