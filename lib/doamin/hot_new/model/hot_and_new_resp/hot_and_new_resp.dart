@@ -10,7 +10,7 @@ class HotAndNewResp {
   @JsonKey(name: 'results')
   List<HotAndNewData> results;
 
-  HotAndNewResp({this.page, this.results= const []});
+  HotAndNewResp({this.page, this.results = const []});
 
   factory HotAndNewResp.fromJson(Map<String, dynamic> json) {
     return _$HotAndNewRespFromJson(json);
@@ -32,6 +32,9 @@ class HotAndNewData {
 
   @JsonKey(name: 'original_title')
   String? originalTitle;
+  //in case of tv services,use orginal name intead of orginal title
+  @JsonKey(name: 'original_name')
+  String? originalName;
 
   @JsonKey(name: 'overview')
   String? overview;
@@ -41,7 +44,8 @@ class HotAndNewData {
 
   @JsonKey(name: 'release_date')
   String? releaseDate;
-  @JsonKey(name: '')
+
+  @JsonKey(name: 'name')
   String? title;
 
   HotAndNewData({

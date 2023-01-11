@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-//import 'package:netflix/appplication/bloc/downloads_bloc.dart';
+import 'package:netflix/appplication/fast_laugh/fast_laugh_bloc.dart';
+import 'package:netflix/appplication/home/home_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/doamin/core/depend_injec/injectable.dart';
 import 'package:netflix/presentation/main_page/screen_mian_bottom.dart';
 import 'appplication/downloads/downloads_bloc.dart';
-import 'appplication/fast_laugh/fast_laugh_bloc.dart';
+
+import 'appplication/hot_and_new/hot_and_new_bloc.dart';
 import 'appplication/search/search_bloc.dart';
 
 Future<void> main() async {
@@ -20,22 +22,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
+      //  key: key,
       providers: [
         BlocProvider(
-          create: (context) {
+          create: (ctx) {
             return getIt<DownloadsBloc>();
           },
         ),
         BlocProvider(
-          create: (context) {
+          create: (ctx) {
             return getIt<SearchBloc>();
           },
         ),
-         BlocProvider(
-          create: (context) {
+        BlocProvider(
+          create: (ctx) {
+            return getIt<HotAndNewBloc>();
+          },
+        ),
+        BlocProvider(
+          create: (ctx) {
+            return getIt<HomeBloc>();
+          },
+        ),
+        BlocProvider(
+          create: (ctx) {
             return getIt<FastLaughBloc>();
           },
-        )
+        ),
+        // BlocProvider(
+        //   create: (context) {
+        //     return getIt<HomeBloc>();
+        //   },
+        // )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

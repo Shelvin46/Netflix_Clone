@@ -1,5 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+//import 'package:netflix/appplication/Home/home_bloc.dart';
+import 'package:netflix/appplication/home/home_bloc.dart';
+//import 'package:netflix/appplication/Home/home_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
@@ -13,17 +19,20 @@ class ScreenHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BlocProvider.of<HomeBloc>(context).add(const GetHomeScreenData());
+    });
+
     return Scaffold(
-        body: ValueListenableBuilder(
-      valueListenable: scrollNotifier,
-      builder: (context, value, child) {
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: NotificationListener<UserScrollNotification>(
+        body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SafeArea(
+        child: ValueListenableBuilder(
+          valueListenable: scrollNotifier,
+          builder: (BuildContext context, bool value, Widget? _) {
+            return NotificationListener<UserScrollNotification>(
               onNotification: (notification) {
                 final ScrollDirection direction = notification.direction;
-                //print(direction);
                 if (direction == ScrollDirection.reverse) {
                   scrollNotifier.value = false;
                 } else if (direction == ScrollDirection.forward) {
@@ -33,23 +42,67 @@ class ScreenHomePage extends StatelessWidget {
               },
               child: Stack(
                 children: [
-                  ListView( 
-                    children: const [
-                      //kHeight,
-                      BackgroundCard(),
+                  BlocBuilder<HomeBloc, HomeState>(
+                    builder: (context, state) {
+                      if (state.isLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                          ),
+                        );
+                      } else if (state.hasError) {
+                        return Center(child: Text('Error While Getting data'));
+                      }
 
-                      MainTitleCard(title: "Releases in this Year"),
-                      MainTitleCard(
-                        title: "Trending Now",
-                      ),
-                      NumberCard(),
-                      MainTitleCard(
-                        title: "South Indian cinema",
-                      ),
-                      MainTitleCard(
-                        title: "Tense Dramas",
-                      )
-                    ],
+                      final _releasePastYear = state.pastYearMoveList.map((m) {
+                        return '$imageAppendUrl${m.posterPath}';
+                      }).toList();
+                      //trending
+                      final _trending = state.trendingMovieList.map((m) {
+                        return '$imageAppendUrl${m.posterPath}';
+                      }).toList();
+                      _trending.shuffle();
+                      //tense drama
+                      final _tenseDrama = state.tenseDramasMoveList.map((m) {
+                        return '$imageAppendUrl${m.posterPath}';
+                      }).toList();
+                      _tenseDrama.shuffle();
+                      //southindian filims
+                      final _southFilims = state.sounthIndianMoveList.map((m) {
+                        return '$imageAppendUrl${m.posterPath}';
+                      }).toList();
+                      _southFilims.shuffle();
+                      //_southFilims.shuffle();
+
+                      //top 10 tv shows
+                      final _top10TvShows = state.trendingTvList.map((m) {
+                        return '$imageAppendUrl${m.posterPath}';
+                      }).toList();
+                      _top10TvShows.shuffle();
+
+                      return ListView(
+                        children: [
+                          //kHeight,
+                          const BackgroundCard(),
+
+                          MainTitleCard(
+                            title: "Releases in this Year",
+                            posterList: _releasePastYear.sublist(0, 10),
+                          ),
+                          MainTitleCard(
+                              title: "Trending Now",
+                              posterList: _trending.sublist(0, 10)),
+                          NumberCard(postersList: _top10TvShows.sublist(0, 10)),
+                          MainTitleCard(
+                              title: "South Indian cinema",
+                              posterList: _southFilims),
+                          MainTitleCard(
+                            title: "Tense Dramas",
+                            posterList: _tenseDrama.sublist(0, 10),
+                          )
+                        ],
+                      );
+                    },
                   ),
                   scrollNotifier.value == true
                       ? AnimatedContainer(
@@ -107,10 +160,10 @@ class ScreenHomePage extends StatelessWidget {
                       : kHeight
                 ],
               ),
-            ),
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ),
     ));
   }
 

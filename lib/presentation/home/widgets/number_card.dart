@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/constants.dart';
 
 class NumberTitleCard extends StatelessWidget {
-  NumberTitleCard({super.key, required this.index});
+  NumberTitleCard({
+    super.key,
+    required this.index,
+    required this.imageurl,
+  });
   final int index;
   int a = 1;
+  final String imageurl;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,13 @@ class NumberTitleCard extends StatelessWidget {
             Container(
               width: 150,
               height: 250,
-              decoration: boxDecorationNumber,
+              decoration: BoxDecoration(
+                borderRadius: boredRadiusHome,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(imageurl),
+                ),
+              ),
             ),
           ],
         ),

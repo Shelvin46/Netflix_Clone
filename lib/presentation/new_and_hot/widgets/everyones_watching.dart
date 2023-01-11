@@ -5,12 +5,19 @@ import 'package:netflix/presentation/new_and_hot/widgets/main_buttons.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/video_widget.dart';
 
 class EveryOneWatching extends StatelessWidget {
-  const EveryOneWatching({
-    Key? key,
-    required this.descriptionText,
-  }) : super(key: key);
+  final String posterPath;
+  final String movieName;
+  final String descrption;
 
-  final String descriptionText;
+  // final String descriptionText;
+
+  const EveryOneWatching({
+    super.key,
+    required this.posterPath,
+    required this.movieName,
+    required this.descrption,
+    //required this.descriptionText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +26,23 @@ class EveryOneWatching extends StatelessWidget {
       Padding(
         padding: textGap.padding,
         child: Text(
-          "Friends",
+          movieName,
           style: contentTextGap,
         ),
       ),
       Padding(
         padding: textGap.padding,
         child: Text(
-          descriptionText,
+          descrption,
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
           style: descrptionStyle,
         ),
       ),
       videoGap,
-      const VideoWidget(),
+      VideoWidget(
+        url: posterPath,
+      ),
       kHeight,
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
