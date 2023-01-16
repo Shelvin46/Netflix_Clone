@@ -13,8 +13,9 @@ class VideoWidget extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(15.0),
           child: Container(
+            
             height: 300,
             width: double.infinity,
             child: Image.network(

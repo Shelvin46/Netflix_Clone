@@ -33,8 +33,9 @@ class ScreenSearch extends StatelessWidget {
               style: searchTextStyle,
               onChanged: (value) {
                 _debouncer.run(() {
-                  BlocProvider.of<SearchBloc>(context)
-                      .add(SearchMovie(movieQuery: value));
+                  BlocProvider.of<SearchBloc>(context).add(
+                    SearchMovie(movieQuery: 'spiderman'),
+                  );
                 });
               },
             ),

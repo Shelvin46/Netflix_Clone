@@ -49,11 +49,6 @@ class MyApp extends StatelessWidget {
             return getIt<FastLaughBloc>();
           },
         ),
-        // BlocProvider(
-        //   create: (context) {
-        //     return getIt<HomeBloc>();
-        //   },
-        // )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

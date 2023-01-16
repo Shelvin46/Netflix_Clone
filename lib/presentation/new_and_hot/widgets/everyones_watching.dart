@@ -34,12 +34,14 @@ class EveryOneWatching extends StatelessWidget {
         padding: textGap.padding,
         child: Text(
           descrption,
-          maxLines: 4,
+          maxLines: 5,
           overflow: TextOverflow.ellipsis,
           style: descrptionStyle,
         ),
       ),
-      videoGap,
+      kHeight,
+
+      //videoGap,
       VideoWidget(
         url: posterPath,
       ),
