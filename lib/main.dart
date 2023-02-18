@@ -60,9 +60,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: backgroundColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: const TextTheme(
-            bodyText1: TextStyle(
-              color: Colors.white,
-            ),
+            bodyText1: TextStyle(color: Colors.white),
             bodyText2: TextStyle(
               color: Colors.white,
             ),
