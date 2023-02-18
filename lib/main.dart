@@ -6,7 +6,6 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/doamin/core/depend_injec/injectable.dart';
 import 'package:netflix/presentation/main_page/screen_mian_bottom.dart';
 import 'appplication/downloads/downloads_bloc.dart';
-
 import 'appplication/hot_and_new/hot_and_new_bloc.dart';
 import 'appplication/search/search_bloc.dart';
 
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      //  key: key,
       providers: [
         BlocProvider(
           create: (ctx) {
