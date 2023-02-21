@@ -9,7 +9,9 @@ import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 import '../../appplication/downloads/downloads_bloc.dart';
 
 class ScreenDownload extends StatelessWidget {
-  ScreenDownload({super.key});
+  ScreenDownload({
+    super.key,
+  });
   final widgetList = const [Section1(), Section2(), Section3()];
 
   @override
