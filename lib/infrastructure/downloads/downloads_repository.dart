@@ -10,7 +10,7 @@ import 'package:netflix/doamin/downloads/i_downloads_repo.dart';
 import 'package:netflix/doamin/downloads/models/model_download.dart';
 
 @LazySingleton(
-    as: IDownloadsRepo) //here where ever we called the IDownloadRepo the DownloadRepository will be also call
+    as: IDownloadsRepo) //here where ever we called the IDownloadRepo the DownloadRepository  implementation wil be call.
 //here we call the api
 class DownloadsRepository implements IDownloadsRepo {
   @override

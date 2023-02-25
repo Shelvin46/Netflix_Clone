@@ -106,6 +106,7 @@ class Section2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      //it work  aftrer the building of ths UI.
       BlocProvider.of<DownloadsBloc>(context)
           .add(const DownloadsEvent.getDownloadImages());
     });

@@ -12,14 +12,17 @@ part 'downloads_bloc.freezed.dart';
 
 @Injectable()
 class DownloadsBloc extends Bloc<DownloadsEvent, DownloadState> {
-  final IDownloadsRepo _downloadsRepo;
+  final IDownloadsRepo
+      _downloadsRepo; /*while using this variable we can call the IDowmloadRepository class becouse 
+                                        we inject the  iDownloadRepo Class as singleton  so we can 
+                                        indirectly call the IDowmloadRepository class  */
+
   DownloadsBloc(this._downloadsRepo) : super(DownloadState.inital()) {
     on<_GetDownloadsImages>((event, emit) async {
       emit(state.copyWith(
         // downloadFailureandSucess: none(),
         isLoading: true,
       ));
-
       final Either<MainFailure, List<Downloads>> downloadsOption =
           await _downloadsRepo.getDownloadImages();
       log(downloadsOption.toString());

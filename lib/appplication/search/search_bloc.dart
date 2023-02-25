@@ -26,21 +26,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     //idleState
     on<Initialize>(
       (event, emit) async {
-        emit(const SearchState(
-            searchResultList: [],
-            idleList: [],
-            isLoading: false,
-            isError: false));
-        //get trending
-
         final _result = await _downloadsService.getDownloadImages();
-        final state = _result.fold((MainFailure f) {
+        final state = _result.fold((MainFailure l) {
           return const SearchState(
-            searchResultList: [],
-            idleList: [],
-            isLoading: false,
-            isError: true,
-          );
+              searchResultList: [],
+              idleList: [],
+              isLoading: false,
+              isError: true);
         }, (List<Downloads> list) {
           return SearchState(
               searchResultList: [],
@@ -48,12 +40,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
               isLoading: false,
               isError: false);
         });
-
         emit(state);
-        //show to ui
       },
     );
-    //search result state
+
     on<SearchMovie>(
       (event, emit) async {
         //call search movie api
